@@ -194,7 +194,7 @@ def upload():
         return "No selected file"
     file.save(file.filename)
     return redirect(url_for('upload_file'))
-app.run(host="0.0.0.0")
+
 if __name__ == '__main__':
     app.run(debug=True)
 
