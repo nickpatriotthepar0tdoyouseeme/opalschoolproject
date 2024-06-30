@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+        background-color: black;
+    } 
+    </style>
+<body>
+
+<canvas id="gameCanvas" width="400" height="400"></canvas>
+
+<script>
+var canvas = document.getElementById('gameCanvas');
+var context = canvas.getContext('2d');
+
+var box = 20;
+var snake = [];
+snake[0] = {x: 10 * box, y: 10 * box};
+
+var food = {
+    x: Math.floor(Math.random() * 15 + 1) * box,
+    y: Math.floor(Math.random() * 15 + 1) * box
+}
+
+var score = 0;
+var highScore = localStorage.getItem('highScore') || 0;
+
+var d;
+
+document.addEventListener('keydown', direction);
+
+function direction(event) {
+    if(event.keyCode == 37 && d != 'RIGHT') {
+        d = 'LEFT';
+    } else if(event.keyCode == 38 && d != 'DOWN') {
+        d = 'UP';
+    } else if(event.keyCode == 39 && d != 'LEFT') {
+        d = 'RIGHT';
+    } else if(event.keyCode == 40 && d != 'UP') {
+        d = 'DOWN';
+    }
+}
+
+function draw() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    for(var i = 0; i < snake.length; i++) {
+        context.fillStyle = (i == 0) ? 'green' : 'white';
+        context.fillRect(snake[i].x, snake[i].y, box, box);
+
+        context.strokeStyle = 'red';
+        context.strokeRect(snake[i].x, snake[i].y, box, box);
+    }
+
+    context.fillStyle = 'red';
+    context.fillRect(food.x, food.y, box, box);
+
+    var snakeX = snake[0].x;
+    var snakeY = snake[0].y;
+
+    if(d == 'LEFT') snakeX -= box;
+    if(d == 'UP') snakeY -= box;
+    if(d == 'RIGHT') snakeX += box;
+    if(d == 'DOWN') snakeY += box;
+
+    if(snakeX == food.x && snakeY == food.y) {
+        score++;
+        if(score > highScore) {
+            highScore = score;
+            localStorage.setItem('highScore', highScore);
+        }
+        food = {
+            x: Math.floor(Math.random() * 15 + 1) * box,
+            y: Math.floor(Math.random() * 15 + 1) * box
+        }
+    } else {
+        snake.pop();
+    }
+
+    var newHead = {
+        x: snakeX,
+        y: snakeY
+    }
+
+    if(snakeX < 0 || snakeY < 0 || snakeX > 19 * box || snakeY > 19 * box || collision(newHead, snake)) {
+        clearInterval(game);
+    }
+
+    snake.unshift(newHead);
+
+    context.fillStyle = 'white';
+    context.font = '20px Changa one';
+    context.fillText(score, 2 * box, 1.6 * box);
+    context.fillText('High Score: ' + highScore, 14 * box, 1.6 * box);
+}
+
+function collision(head, array) {
+    for(var i = 0; i < array.length; i++) {
+        if(head.x == array[i].x && head.y == array[i].y) {
+            return true;
+        }
+    }
+    return false;
+}
+
+var game = setInterval(draw, 100);
+</script>
+
+</body>
+</html>

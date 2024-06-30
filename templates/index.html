@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>opal peak</title>
+    <link rel="icon" href="/static/favicon.png" type="image/x-icon">
+    <marquee behavior="message" direction="left">opal peak ® all rights reserved</marquee>
+    <header><style>
+        /* Styles for the navbar */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        head {
+            color: #ff0000;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: xx-large;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/assignment">assignment</a>
+    <a href="/r">resaults</a>
+    <a href="/pole">polls</a>
+    <a href="/archives">archives</a>
+    <a href="/snake">snake game</a>
+    <a href="/blog">articles(by administrator)</a>
+</div>
+
+   <head>community</head>
+</div></header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .character-limit {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            color: brown;
+            font-size: 14px;
+        }
+        h2 {
+            color: #0056b3;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: large;
+            font-weight: bold;
+        }
+        marquee {
+            color: #0056b3;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: large;
+            font-weight: bold;
+        }
+    </style>
+
+    <div class="character-limit">
+        Character Limit: <span id="char-count">2000</span>
+    </div>
+    <script>
+    const charCountElement = document.getElementById('char-count');
+    const maxCharLimit = 2000; // Set your desired character limit
+
+    // Example: Update character count when user types
+    const inputElement = document.getElementById('user-input'); // Replace with your input element ID
+    inputElement.addEventListener('input', () => {
+        const currentCharCount = inputElement.value.length;
+        charCountElement.textContent = maxCharLimit - currentCharCount;
+    });
+</script>
+
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='p.jfif') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .username {
+            font-size: 24px;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="username">
+        Hello {{ username }}!
+    </div>
+    
+    <!-- Other content goes here -->
+    <style>
+        h1 {
+            background: scroll;
+            color: crimson;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: medium;
+            font-weight: bold;
+        }
+    </style>
+</body>
+<h1>
+    <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: red;
+            font-size: small;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        #display {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include SocketIO library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+</head>
+<body>
+
+    <div id="chat">
+        <!-- Display messages here -->
+    </div>
+    <input type="text" id="messageInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        // Connect to the SocketIO server
+        const socket = io.connect();
+
+        // Listen for new messages
+        socket.on('message_received', (data) => {
+            const chatDiv = document.getElementById('chat');
+            const messageDiv = document.createElement('div');
+            messageDiv.textContent = data.message;
+            chatDiv.appendChild(messageDiv);
+        });
+
+        // Send a message
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value;
+            socket.emit('message', { message });
+            messageInput.value = ''; // Clear input field
+        }
+    </script>
+</body>
+<div>
+    <h1 oncontextmenu="return false;">content (specificly by administrator / nick)</h1>
+    <h1 oncontextmenu="return false;">.با سلام خدمت هم شاگردی های عزیز </h1>
+    <h1 oncontextmenu="return false;">*.سایت اوپال راه اندازی شد و میتوانید از راهنمای سایت استفاده کنید که در زیر قرار گرفته.*</h1>
+    <h1 oncontextmenu="return false;"><a href="{{ url_for('static', filename='guide.pdf') }}">Link to Guide</a>
+    </h1>
+    <h1>.توجه داشته باشید آپلود فایل در حالت مینتنس (آزمایشی) قرار دارد.</h1>
+    <h2>
+        <h2><!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                
+            </head>
+            <body>
+                <h1>Upload File</h1>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file">
+                    <input type="submit" value="Upload">
+                </form>
+            </body>
+            </html>
+            </h2>
+
+    
+
+    </h1>
+</html>

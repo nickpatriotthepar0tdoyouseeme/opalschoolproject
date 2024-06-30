@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+            background-color: rgb(180, 180, 180);
+            position: fixed;
+         }
+    </style>
+<body>
+    <img src="{{ url_for('static', filename='OIP.jpg') }}" alt="My Image">
+
+<h2>THE ARCHIVES</h2>
+
+<p>Enter Pin:</p>
+
+<input type="password" id="pin" name="pin">
+
+<button onclick="openFile()">Submit</button>
+
+<script>
+function openFile() {
+  var pin = document.getElementById("pin").value;
+  var correctPin = "1234"; // Set your pin here
+
+  if(pin == correctPin) {
+    window.open("file.txt"); // Replace with your file path
+  } else {
+    alert("Incorrect Pin!");
+  }
+}
+</script>
+
+</body>
+</html>
